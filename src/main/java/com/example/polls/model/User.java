@@ -1,6 +1,7 @@
 package com.example.polls.model;
 
 
+import com.example.polls.model.audit.DataAudit;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -11,11 +12,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(uniqueConstraints = {
+@Table( name = "users" ,
+        uniqueConstraints = {
         @UniqueConstraint(columnNames = {"username"}),
         @UniqueConstraint(columnNames = {"email"})
 })
-public class User {
+public class User extends DataAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +38,11 @@ public class User {
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     private Set<Role> roles = new HashSet<>();
 
     public User() {
