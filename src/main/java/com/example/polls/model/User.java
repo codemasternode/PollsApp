@@ -19,7 +19,6 @@ import java.util.Set;
 })
 public class User extends DataAudit {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -39,11 +38,11 @@ public class User extends DataAudit {
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
+    /*@JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
+    )*/
     private Set<Role> roles = new HashSet<>();
 
     public User() {
