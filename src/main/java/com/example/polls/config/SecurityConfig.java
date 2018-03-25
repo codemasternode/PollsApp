@@ -27,12 +27,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //Służy do sprawdzenia roli użytkowników, dostarcza dane użytkowników
     @Autowired
-    CustomUserDetailsService customUserDetailsService;
+    private CustomUserDetailsService customUserDetailsService;
 
 
     //wyrzucanie błędów do klienta, jeśli ten próbuje dostać się do danych strzeżonych
     @Autowired
-    private JwtAuthenticationEntryPoint unautorizedHandler;
+    private JWTAuthenticationEntryPoint unautorizedHandler;
 
 
 

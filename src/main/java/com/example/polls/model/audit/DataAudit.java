@@ -24,6 +24,12 @@ public abstract class DataAudit implements Serializable {
     @LastModifiedDate
     private Instant updatedAt;
 
+    public DataAudit() {
+
+    }
+
+
+
     public Instant getCreatedAt() {
         return createdAt;
     }
