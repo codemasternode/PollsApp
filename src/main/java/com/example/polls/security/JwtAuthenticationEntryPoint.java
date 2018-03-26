@@ -1,4 +1,4 @@
-package com.example.polls.config;
+package com.example.polls.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
-    private static final Logger logger = LoggerFactory.getLogger(JWTAuthenticationEntryPoint.class);
+public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
+    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationEntryPoint.class);
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         logger.error("Responding with unauthorized error. Message: ",e.getMessage());

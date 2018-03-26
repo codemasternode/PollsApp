@@ -1,4 +1,4 @@
-package com.example.polls.config;
+package com.example.polls.security;
 
 
 import com.example.polls.model.User;

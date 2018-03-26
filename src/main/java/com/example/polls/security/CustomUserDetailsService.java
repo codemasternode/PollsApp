@@ -1,7 +1,8 @@
-package com.example.polls.config;
+package com.example.polls.security;
 
 import com.example.polls.model.User;
 import com.example.polls.repository.UserRepository;
+import com.example.polls.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,12 +11,17 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+/*Klasa służąca do sprawdzenia czy użytkownik w ogóle istnieje */
+
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService{
 
     @Autowired
     private UserRepository userRepository;
 
+
+    //Wykorzystywane przy zwracaniu danych użytkownika
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {

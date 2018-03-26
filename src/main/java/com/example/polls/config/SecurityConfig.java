@@ -1,6 +1,9 @@
 package com.example.polls.config;
 
 
+import com.example.polls.security.CustomUserDetailsService;
+import com.example.polls.security.JwtAuthenticationEntryPoint;
+import com.example.polls.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,12 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //Służy do sprawdzenia roli użytkowników, dostarcza dane użytkowników
     @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    CustomUserDetailsService customUserDetailsService;
 
 
     //wyrzucanie błędów do klienta, jeśli ten próbuje dostać się do danych strzeżonych
     @Autowired
-    private JWTAuthenticationEntryPoint unautorizedHandler;
+    JwtAuthenticationEntryPoint unautorizedHandler;
 
 
 
